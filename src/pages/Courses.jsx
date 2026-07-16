@@ -30,39 +30,57 @@ function Courses() {
         <div className="grid md:grid-cols-3 gap-8 mt-10">
 
           <CourseCard
-            title="Frontend Development"
-            description="Master HTML, CSS, JavaScript, React and build modern websites."
-          />
+  icon="💻"
+  title="Frontend Development"
+  description="Master HTML, CSS, JavaScript and React to build modern websites."
+  tags={["HTML", "CSS", "React"]}
+  level="Beginner"
+/>
 
 
-          <CourseCard
-            title="Full Stack Development"
-            description="Learn frontend, backend, databases and deploy complete applications."
-          />
+<CourseCard
+  icon="🚀"
+  title="Full Stack Development"
+  description="Learn frontend, backend, databases and deployment."
+  tags={["React", "Node", "MongoDB"]}
+  level="Advanced"
+/>
 
 
-          <CourseCard
-            title="Data Structures & Algorithms"
-            description="Prepare for coding interviews with strong DSA fundamentals."
-          />
+<CourseCard
+  icon="🧠"
+  title="Data Structures & Algorithms"
+  description="Prepare for coding interviews with strong DSA fundamentals."
+  tags={["C++", "DSA", "Algorithms"]}
+  level="Intermediate"
+/>
 
 
-          <CourseCard
-            title="AI & Machine Learning"
-            description="Understand machine learning concepts and AI technologies."
-          />
+<CourseCard
+  icon="🤖"
+  title="AI & Machine Learning"
+  description="Understand machine learning concepts and AI technologies."
+  tags={["Python", "ML", "AI"]}
+  level="Advanced"
+/>
 
 
-          <CourseCard
-            title="Python Programming"
-            description="Start your programming journey with Python basics and projects."
-          />
+<CourseCard
+  icon="🐍"
+  title="Python Programming"
+  description="Start programming with Python basics and projects."
+  tags={["Python", "Basics", "Projects"]}
+  level="Beginner"
+/>
 
 
-          <CourseCard
-            title="Cyber Security"
-            description="Learn security concepts and protect digital systems."
-          />
+<CourseCard
+  icon="🔐"
+  title="Cyber Security"
+  description="Learn security concepts and protect digital systems."
+  tags={["Security", "Networks", "Ethical Hacking"]}
+  level="Intermediate"
+/>
 
         </div>
 
