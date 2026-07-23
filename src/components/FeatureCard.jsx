@@ -2,7 +2,7 @@ function FeatureCard({ title, description, icon }) {
   return (
     <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl transition">
 
-      <div className="text-4xl">
+      <div className="text-4xl text-orange-500 mb-4 flex justify-center">
         {icon}
       </div>
 

@@ -1,10 +1,55 @@
+import { useState } from "react";
+import {
+  FaLaptopCode,
+  FaBrain,
+  FaRobot,
+  FaRocket,
+  FaUserGraduate,
+  FaTrophy,
+  FaGlobe,
+} from "react-icons/fa";
+
 import CourseCard from "../components/CourseCard";
 import FeatureCard from "../components/FeatureCard";
 import StatsCard from "../components/StatsCard";
 import LearningPathCard from "../components/LearningPathCard";
 import heroImg from "../assets/hero.png";
+import CourseSection from "../components/CourseSection";
+
 
 function Home() {
+  const [search, setSearch] = useState("");
+
+  const courses = [
+    {
+      id: 1,
+      icon: <FaLaptopCode />,
+      title: "Web Development",
+      description:
+        "Learn frontend, backend and build real-world projects.",
+      tags: ["HTML", "CSS", "React"],
+      level: "Beginner",
+    },
+    {
+      id: 2,
+      icon: <FaBrain />,
+      title: "Data Structures & Algorithms",
+      description:
+        "Master DSA concepts for coding interviews.",
+      tags: ["C++", "DSA", "Problem Solving"],
+      level: "Intermediate",
+    },
+    {
+      id: 3,
+      icon: <FaRobot />,
+      title: "AI & Machine Learning",
+      description:
+        "Explore AI concepts and intelligent systems.",
+      tags: ["Python", "ML", "AI"],
+      level: "Advanced",
+    },
+  ];
+
   return (
     <div>
 
@@ -47,48 +92,9 @@ function Home() {
 
       </section>
 
-      {/* Popular Courses */}
-      <section className="py-16 px-10 bg-white">
+      <CourseSection />
 
-        <h2 className="text-3xl font-bold text-center">
-          Popular Courses
-        </h2>
-
-        <p className="text-center mt-3 text-gray-600">
-          Choose the right path to start your coding journey.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-8 mt-10">
-
-          <CourseCard
-            icon="💻"
-            title="Web Development"
-            description="Learn frontend, backend and build real-world projects."
-            tags={["HTML", "CSS", "React"]}
-            level="Beginner"
-          />
-
-          <CourseCard
-            icon="🧠"
-            title="Data Structures & Algorithms"
-            description="Master DSA concepts for coding interviews."
-            tags={["C++", "DSA", "Problem Solving"]}
-            level="Intermediate"
-          />
-
-          <CourseCard
-            icon="🤖"
-            title="AI & Machine Learning"
-            description="Explore AI concepts and intelligent systems."
-            tags={["Python", "ML", "AI"]}
-            level="Advanced"
-          />
-
-        </div>
-
-      </section>
-
-      {/* Why Choose Us */}
+            {/* Why Choose Us */}
       <section className="py-16 px-10 bg-gray-50">
 
         <h2 className="text-3xl font-bold text-center">
@@ -102,19 +108,19 @@ function Home() {
         <div className="grid md:grid-cols-3 gap-8 mt-10">
 
           <FeatureCard
-            icon="🚀"
+            icon={<FaRocket />}
             title="Industry Ready Skills"
             description="Learn technologies used in real-world projects."
           />
 
           <FeatureCard
-            icon="👨‍💻"
+            icon={<FaUserGraduate />}
             title="Expert Guidance"
             description="Get structured learning paths and mentorship."
           />
 
           <FeatureCard
-            icon="🏆"
+            icon={<FaTrophy />}
             title="Placement Preparation"
             description="Prepare for coding interviews and career growth."
           />
@@ -136,25 +142,10 @@ function Home() {
 
         <div className="grid md:grid-cols-4 gap-8 mt-10">
 
-          <StatsCard
-            number="50K+"
-            title="Students"
-          />
-
-          <StatsCard
-            number="100+"
-            title="Courses"
-          />
-
-          <StatsCard
-            number="95%"
-            title="Success Rate"
-          />
-
-          <StatsCard
-            number="24/7"
-            title="Support"
-          />
+          <StatsCard number="50K+" title="Students" />
+          <StatsCard number="100+" title="Courses" />
+          <StatsCard number="95%" title="Success Rate" />
+          <StatsCard number="24/7" title="Support" />
 
         </div>
 
@@ -174,25 +165,25 @@ function Home() {
         <div className="grid md:grid-cols-4 gap-8 mt-10">
 
           <LearningPathCard
-            icon="🌐"
+            icon={<FaGlobe />}
             title="Frontend Development"
             duration="3 Months"
           />
 
           <LearningPathCard
-            icon="🚀"
+            icon={<FaRocket />}
             title="Full Stack Development"
             duration="6 Months"
           />
 
           <LearningPathCard
-            icon="🧠"
+            icon={<FaBrain />}
             title="DSA Preparation"
             duration="4 Months"
           />
 
           <LearningPathCard
-            icon="🤖"
+            icon={<FaRobot />}
             title="AI & Machine Learning"
             duration="5 Months"
           />
