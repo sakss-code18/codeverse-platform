@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 function CourseModal({ course, onClose }) {
+  const navigate = useNavigate();
   if (!course) return null;
 
   return (
@@ -43,11 +46,15 @@ function CourseModal({ course, onClose }) {
           <span className="font-semibold">Category:</span> {course.category}
         </p>
 
-        <button
-          className="mt-8 w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 transition"
-        >
-          Enroll Now
-        </button>
+       <button
+  onClick={() => {
+    onClose();
+    navigate("/login");
+  }}
+  className="mt-8 w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 transition"
+>
+  Enroll Now
+</button>
 
       </div>
     </div>

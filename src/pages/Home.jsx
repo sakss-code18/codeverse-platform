@@ -1,84 +1,60 @@
-import { useState } from "react";
 import {
-  FaLaptopCode,
-  FaBrain,
-  FaRobot,
   FaRocket,
   FaUserGraduate,
   FaTrophy,
   FaGlobe,
+  FaBrain,
+  FaRobot,
 } from "react-icons/fa";
-
-import CourseCard from "../components/CourseCard";
 import FeatureCard from "../components/FeatureCard";
 import StatsCard from "../components/StatsCard";
 import LearningPathCard from "../components/LearningPathCard";
 import heroImg from "../assets/hero.png";
 import CourseSection from "../components/CourseSection";
-
+import {useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const [search, setSearch] = useState("");
+  const courseRef = useRef(null);
+  const navigate = useNavigate();
 
-  const courses = [
-    {
-      id: 1,
-      icon: <FaLaptopCode />,
-      title: "Web Development",
-      description:
-        "Learn frontend, backend and build real-world projects.",
-      tags: ["HTML", "CSS", "React"],
-      level: "Beginner",
-    },
-    {
-      id: 2,
-      icon: <FaBrain />,
-      title: "Data Structures & Algorithms",
-      description:
-        "Master DSA concepts for coding interviews.",
-      tags: ["C++", "DSA", "Problem Solving"],
-      level: "Intermediate",
-    },
-    {
-      id: 3,
-      icon: <FaRobot />,
-      title: "AI & Machine Learning",
-      description:
-        "Explore AI concepts and intelligent systems.",
-      tags: ["Python", "ML", "AI"],
-      level: "Advanced",
-    },
-  ];
-
+const scrollToCourses = () => {
+  courseRef.current?.scrollIntoView({
+    behavior: "smooth",
+  });
+};
   return (
     <div>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col md:flex-row items-center justify-between px-10 bg-gray-50 gap-10">
+      <section className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100">
 
-        <div className="max-w-xl">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-10 lg:py-20 flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div className="max-w-2xl text-center lg:text-left">
 
-          <h1 className="text-5xl font-bold leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-gray-950">
             Learn Coding.
             <span className="text-orange-500"> Build Your Future.</span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-600">
+          <p className="mt-6 text-base sm:text-lg font-medium text-gray-800 leading-8">
             Master programming, data structures, web development and become
             industry ready with structured learning.
           </p>
 
-          <div className="mt-8 flex gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
 
-            <button className="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition">
+            <button className="w-full sm:w-auto bg-orange-500 text-white px-8 py-4 rounded-xl hover:bg-orange-600 transition shadow-lg" onClick={scrollToCourses}>
               Explore Courses
             </button>
-
-            <button className="border border-orange-500 text-orange-500 px-6 py-3 rounded-lg hover:bg-orange-50 transition">
+          
+            <button
+            onClick={() => navigate("/login")}
+             className="w-full sm:w-auto border-2 border-orange-500 text-orange-500 px-8 py-4 rounded-xl hover:bg-orange-500 hover:text-white transition">
               Start Learning
             </button>
-
           </div>
+          
 
         </div>
 
@@ -86,22 +62,25 @@ function Home() {
           <img
             src={heroImg}
             alt="Coding Illustration"
-            className="w-80 md:w-96"
+            className="w-72 sm:w-96 lg:w-[520px] xl:w-[560px] drop-shadow-2xl"
           />
         </div>
 
+        </div>
+
       </section>
-
+       
+      <div ref={courseRef}>
       <CourseSection />
-
+      </div>
             {/* Why Choose Us */}
-      <section className="py-16 px-10 bg-gray-50">
+      <section className="py-20 px-5 sm:px-8 lg:px-10 bg-gray-50">
 
-        <h2 className="text-3xl font-bold text-center">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-gray-950">
           Why Choose CodeVerse?
         </h2>
 
-        <p className="text-center mt-3 text-gray-600">
+        <p className="text-center mt-4 text-gray-800 text-lg font-semibold max-w-2xl mx-auto">
           Everything you need to become industry ready.
         </p>
 
@@ -130,17 +109,17 @@ function Home() {
       </section>
 
       {/* Achievements */}
-      <section className="py-16 px-10 bg-white">
+      <section className="py-20 px-5 sm:px-8 lg:px-10 bg-white">
 
-        <h2 className="text-3xl font-bold text-center">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-gray-900">
           Our Achievements
         </h2>
 
-        <p className="text-center mt-3 text-gray-600">
+        <p className="text-center mt-4 text-gray-800 text-lg font-medium max-w-2xl mx-auto">
           Numbers that represent our learning community.
         </p>
 
-        <div className="grid md:grid-cols-4 gap-8 mt-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
 
           <StatsCard number="50K+" title="Students" />
           <StatsCard number="100+" title="Courses" />
@@ -152,17 +131,17 @@ function Home() {
       </section>
 
       {/* Learning Paths */}
-      <section className="py-16 px-10 bg-gray-50">
+      <section className="py-20 px-5 sm:px-8 lg:px-10 bg-gray-50">
 
-        <h2 className="text-3xl font-bold text-center">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-gray-900">
           Choose Your Learning Path
         </h2>
 
-        <p className="text-center mt-3 text-gray-600">
+        <p className="text-center mt-4 text-gray-700 text-lg font-medium max-w-2xl mx-auto">
           Select a roadmap that matches your career goals.
         </p>
 
-        <div className="grid md:grid-cols-4 gap-8 mt-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
 
           <LearningPathCard
             icon={<FaGlobe />}
