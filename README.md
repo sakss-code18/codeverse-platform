@@ -25,7 +25,7 @@ https://github.com/sakss-code18/codeverse-platform
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - React.js
 - Vite
